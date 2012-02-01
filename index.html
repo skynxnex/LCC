@@ -3,11 +3,16 @@
 		<title></title>
 		<script src="src/lib/zepto.js" type="text/javascript"></script>
 		<script src="src/jqtouch.js" type="text/javascript"></script>
-		 <script src="src/lib/jquery-1.7.js" type="text/javascript"></script>
+		 <!--<script src="src/lib/jquery-1.7.js" type="text/javascript"></script>-->
 		 
 		<script src="js/game.js" type="text/javascript"></script>
+		<script src="js/min.js" type="text/javascript"></script>
 		<style type="text/css" media="screen">@import "themes/css/apple.css"</style>
-		
+		<style type="text/css" media="screen">@import "themes/css/apple.css";></style>
+		<style type="text/css" media="screen">@import "css/style.css";></style>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 	</head>
 
 	<body>
@@ -15,20 +20,22 @@
 			<div id="home selected" class="edgetoedge">
 				<div class="toolbar">
 					<h1>OmegaPet</h1>
-					<a href="#add" class="button slide">Continue</a>
 				</div>
-				<div id="content"></div>
-
+				<form id="menu1">
+					<div>
+						<a href="#new" class="grayButton">New game</a>
+						<br />
+						<a id="continue" href="#" class="whiteButton">Continue</a>
+					</div>
+					</ul>
+				</form>
 			</div>
-			<div id="add" class="edit">
+			<div id="new" class="edit">
 				<div class="toolbar">
-					<h1>New Page</h1>
-					<a href="#" class="button goback">Back</a>
+					<a href="#" class="back">Back</a>
+					<h1>Playfield</h1>
 				</div>
 			</div>
-
-
-
 
 		</div>
 	</body>
