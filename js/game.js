@@ -8,6 +8,11 @@ $(document).ready(function() {
 		gamestatus : 0,
 		tilesLeft : {
 			tiles : 48
+		},
+		gamesettings : {
+			nonuse : 0,
+			angletile : 0,
+			stoptile : 0
 		}
 
 	}
@@ -25,15 +30,16 @@ $(document).ready(function() {
 	}
 
 
-	var player = {
+	var player1 = {
 		name : '',
 		score : '',
 		decktiles : {}
 	}
-	
-	var player1 = player;
-	var player2 = player;
-	
+	var player2 = {
+		name : '',
+		score : '',
+		decktiles : {}
+	}
 	var playfield = {
 		// playfield : {
 		// 'pf1' : '',
@@ -47,14 +53,14 @@ $(document).ready(function() {
 
 	//Game
 	console.log(game.gamestatus);
-	/*
-	$('a #new').click(function() {
-			//game.init();
+	
+	$('#newGame').click(function() {
+			game.init();
 	});
 	
 	
 	//end game
-	$('a #end').click(function() {
+	$('#endGame').click(function() {
 		console.log(game.strStatus());
 		game.end();
 	});
@@ -62,20 +68,29 @@ $(document).ready(function() {
 	
 	//set playfield
 	$(".individual a").click(function() {
-//		var selPlayfield = $(this).attr('id');
-	//	playfield.activePlayfield = selPlayfield;
-	//	console.log('activeplay field is ' +playfield.activePlayfield);
+		var selPlayfield = $(this).attr('id');
+		playfield.activePlayfield = selPlayfield;
+		console.log('activeplay field is ' +playfield.activePlayfield);
+		
+		$('a#namesContinue').removeAttr("href");
+		
 	})
 	//set player
-	$("#playerContinue").click(function() {
-		
+	$("a#namesContinue").click(function() {
 			player1.name= $('#playerOneName').val();
 			player2.name = $('#playerTwoName').val();
-		
-	
+			
 			console.log(player1.name);
 			console.log(player2.name);
-	
+			
 	});
-	*/
+	
+	$('#startButton').click(function(){
+		
+		game.gamesettings.nonuse = $('#nonuse:checked').val();
+		game.gamesettings.angletile  = $('#angletile:checked').val();
+		game.gamesettings.stoptile  = $('#stoptile:checked').val();
+		
+		console.log(game.gamesettings);
+	});
 });
