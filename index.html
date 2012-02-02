@@ -4,7 +4,7 @@
 		<script src="src/lib/zepto.js" type="text/javascript"></script>
 		<script src="src/jqtouch.js" type="text/javascript"></script>
 		 
-		<script src="js/game.js" type="text/javascript"></script>
+		<!--<script src="js/game.js" type="text/javascript"></script>-->
 		<script src="js/min.js" type="text/javascript"></script>
 		<style type="text/css" media="screen">@import "themes/css/apple.css";</style>
 		<style type="text/css" media="screen">@import "css/style.css";></style>
@@ -19,14 +19,11 @@
 				<div class="toolbar">
 					<h1>OmegaPet</h1>
 				</div>
-				<form id="menu1">
-					<div>
-						<a href="#new" id="new"class="grayButton">New game</a>
+					<div id="menu1">
+						<a id="new" href="#new" class="grayButton">New game</a>
 						<br />
-						<a id="continue" href="#continue" class="whiteButton">Continue</a>
+						<a id="resume" href="#play" class="whiteButton">Continue</a>
 					</div>
-					</ul>
-				</form>
 			</div>
 			<div id="new">
 				<div class="toolbar">
@@ -35,24 +32,45 @@
 				</div>
 				<ul class="individual">
 					<li>
-						<a id="pf1" href="#" class="grayButton">PF1</a>
+						<a id="pf1" href="#names" class="grayButton">PF1</a>
 					</li>
 					<li>
-						<a id="pf2" href="#" class="grayButton">PF2</a>
+						<a id="pf2" href="#names" class="grayButton">PF2</a>
 					</li>
 				</ul>
 				<ul class="individual">
 					<li>
-						<a id="pf3" href="#" class="grayButton">PF3</a>
+						<a id="pf3" href="#names" class="grayButton">PF3</a>
 					</li>
 					<li>
-						<a id="pf4" href="#" class="grayButton">PF4</a>
+						<a id="pf4" href="#names" class="grayButton">PF4</a>
 					</li>
 				</ul>
 			</div>
 			<div id="names">
 				<div class="toolbar">
+					<a href="#" class="back">Back</a>
 					<h1>Names</h1>
+				</div>
+				<form class="scroll">
+					<ul class="edit rounded">
+						<li><input type="text" id="playerOneName" name="playerOneName" placeholder="Player one name"></li>
+					</ul>
+					<ul class="rounded">
+						<li><input type="text" id="playerTwoName" Name="playerTwoName" placeholder="Player two name"></li>
+					</ul>
+					<a id="namesButton" href="#settings" class="grayButton">Continue</a>
+				</form>
+			</div>
+			<div id="settings">
+				<div class="toolbar">
+					<a href="#" class="back">Back</a>
+					<h1>Game settings</h1>
+				</div>
+				<div>
+					<ul class="rounded">
+						<li>
+
 				</div>
 			</div>
 		</div>

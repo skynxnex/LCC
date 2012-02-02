@@ -15,12 +15,13 @@ $(document).ready(function() {
 	game.init = function() {
 		game.gamestatus = 1;
 		console.log('game is active');
+		return true;
 	}
 
 	game.end = function() {
 		game.gamestatus = 0;
 		console.log('game has ended');
-
+		return true;
 	}
 
 
@@ -29,6 +30,7 @@ $(document).ready(function() {
 		score : '',
 		decktiles : {}
 	}
+	
 	var player1 = player;
 	var player2 = player;
 	
@@ -45,16 +47,9 @@ $(document).ready(function() {
 
 	//Game
 	console.log(game.gamestatus);
-	
+	/*
 	$('a #new').click(function() {
-		if(game.gamestatus == 0) {
-			$('#resume').hide();
-			game.init();
-		} else if(game.gamestatus == 1) {
-			$('#resume').show();
-			console.log('continue old game?');
-	}
-		
+			//game.init();
 	});
 	
 	
@@ -67,9 +62,9 @@ $(document).ready(function() {
 	
 	//set playfield
 	$(".individual a").click(function() {
-		var selPlayfield = $(this).attr('id');
-		playfield.activePlayfield = selPlayfield;
-		console.log('activeplay field is ' +playfield.activePlayfield);
+//		var selPlayfield = $(this).attr('id');
+	//	playfield.activePlayfield = selPlayfield;
+	//	console.log('activeplay field is ' +playfield.activePlayfield);
 	})
 	//set player
 	$("#playerContinue").click(function() {
@@ -82,4 +77,5 @@ $(document).ready(function() {
 			console.log(player2.name);
 	
 	});
+	*/
 });
