@@ -9,8 +9,7 @@ $(document).ready(function() {
 		tilesLeft : {
 			tiles : 48
 		}
-		// player1 : Player,
-		// player2 : Player
+
 	}
 
 	game.init = function() {
@@ -31,53 +30,90 @@ $(document).ready(function() {
 		}
 
 	}
-	game.status = function(){
+	game.status = function() {
 		return game.gameStatus;
 	}
+	var player = {
+		name : '',
+		score : '',
+		decktiles : {}
+	}
 
-	game.setPlayerName = function(playerName, player) {
+	player1.setPlayerName = function(name, player) {
 		if(player == 1) {
-			player1 = playerName;
+			player1.name = name;
 		} else {
-			player2 = playerName;
+			player2.name = name;
 		}
 	}
-	
 	playfield = {
-		playfield : {}
-		
+		playfield : {
+			'pf1' : '',
+			'pf2' : '',
+			'pf3' : '',
+			'pf4' : '',
+		}
+
 	}
-	
-	playfield.setPlayfield = function(playfield){
-		
+
+	playfield.setPlayfield = function(playfield) {
+
 	}
 	//Game
 
-	$('#new').click(function() {
-	 
+	$('#newGame').click(function() {
+
 		if(game.status() == 0) {
-			$('#continue').hide();
+			$('#resumeGame').hide();
 
 			game.init();
 			console.log(game.strStatus());
-			//set playfield
-			var selPlayfield = $('#playfield').val();
-			playfield.setPlayfield(selPlayfield);
-			
-			//set player
-			var player1 = $('#player1').val();
-			var player2 = $('#player2').val();
-			player.setPlayerName(player1, 1);
-			player.setPlayerName(player2, 2);
-			
-			
-			
+
 			//end game
 			game.end();
 			console.log(game.strStatus());
-	
+
 		} else {
+			$('#resumeGame').show();
 			console.log('continue old game?');
+		}
+	});
+	//set playfield
+	$("#newPlayfield").click(function() {
+		var selPlayfield = '';
+		var testp = $('#newPlayfield a').val();
+		console.log(testp);
+
+		switch (selPlayfield) {
+			case '#pf1' :
+				selPlayfield = 'pf1';
+				break;
+			case '#pf2' :
+				selPlayfield = 'pf2';
+				break;
+			case '#pf3' :
+				selPlayfield = 'pf3';
+				break;
+			case '#pf4' :
+				selPlayfield = 'pf4';
+				break;
+		}
+
+		playfield.setPlayfield(selPlayfield);
+	})
+	//set player
+	$("#playerContinue").click(function() {
+
+		if(!empty(playfield.playfield)) {
+			var player1 = player;
+			var player2 = player;
+
+			player.setPlayerName($('#player1').val(), 1);
+			player.setPlayerName($('#player2').val(), 2);
+			console.log(player1.name);
+			console.log(player2.name);
+		} else {
+			console.log('no playfield selected');
 		}
 	});
 });
