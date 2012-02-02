@@ -59,7 +59,7 @@
 					<ul class="rounded">
 						<li><input type="text" id="playerTwoName" Name="playerTwoName" placeholder="Player two name"></li>
 					</ul>
-					<a id="namesButton" href="#settings" class="grayButton">Continue</a>
+					<a id="namesContinue" href="#settings" class="grayButton">Continue</a>
 				</form>
 			</div>
 			<div id="settings">
@@ -68,8 +68,17 @@
 					<h1>Game settings</h1>
 				</div>
 				<div>
-					<ul class="rounded">
-						<li>
+					<form>
+						<ul class="rounded">
+							<li>Non-usable tiles<span class="toggle"><input id="nonuse" type="checkbox" /></span></li>
+						</ul>
+						<h2>Special bricks</h2>
+						<ul class="rounded">
+							<li>Angle-word tiles<span class="toggle"><input id="angletile" type="checkbox" /></span></li>
+							<li>Stop tile<span class="toggle"><input id="stoptile" type="checkbox" /></span></li>
+						</ul>
+						<a id="startButton" href="#settings" class="grayButton">Start Game</a>
+					</form>
 
 				</div>
 			</div>
