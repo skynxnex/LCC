@@ -4,6 +4,9 @@
 
 $(document).ready(function() {
 
+	var jQT = $.jQTouch( {});
+
+
 	var game = {
 		gamestatus : 0,
 		tilesLeft : {
@@ -72,7 +75,7 @@ $(document).ready(function() {
 		playfield.activePlayfield = selPlayfield;
 		console.log('activeplay field is ' +playfield.activePlayfield);
 		
-		$('a#namesContinue').removeAttr("href");
+		//$('a#namesContinue').removeAttr("href");
 		
 	})
 	//set player

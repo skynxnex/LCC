@@ -1,5 +1,6 @@
 var jQT = $.jQTouch( {});
 
+/*
 var databaseOptions = {
 	filename : 'todo_database',
 	version : '1.0',
@@ -24,3 +25,4 @@ $(function(){
 	localStorage.setItem('secondTime', '1');
 	console.log(localStorage.getItem('firstTime'));
 });
+*/
