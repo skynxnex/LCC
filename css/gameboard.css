@@ -1,0 +1,51 @@
+#playfield{
+	width: auto;
+	height: 400px;
+}
+#playfield>div{
+	float: left;
+	border: 1px solid #000;
+	position: relative;
+	background: #fefefe;
+}
+#playfieldMenu{
+	width: auto;
+	margin-top: 20px;
+}
+#playfieldMenu ul {
+	height: auto;
+	width: 800px;
+	margin: 0 auto;
+	background: purple;
+}
+#playfieldMenu li {
+	float: left;
+	position: relative;
+	width: auto;
+	padding: 0 30px 0 30px;
+	
+	
+}
+#deck{
+	clear: both;
+	width: auto;
+	height: 80px;
+	background:  #aaa;
+}
+#play a{
+	margin-right: 60px;
+}
+#players{
+	margin-top: -10px;
+	float: right;
+	height: inherit;
+	width: 1200px;
+}
+#players>div{
+	float: left;
+	position: relative;
+	width: 300px;
+	height: inherit;
+	padding-top: 5px;
+}
+
