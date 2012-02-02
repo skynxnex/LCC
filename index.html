@@ -3,27 +3,30 @@
 		<title></title>
 		<script src="src/lib/zepto.js" type="text/javascript"></script>
 		<script src="src/jqtouch.js" type="text/javascript"></script>
-		 
 		<script src="js/game.js" type="text/javascript"></script>
 		<script src="js/min.js" type="text/javascript"></script>
-		<style type="text/css" media="screen">@import "themes/css/apple.css";</style>
-		<style type="text/css" media="screen">@import "css/style.css";></style>
-
+		<style type="text/css" media="screen">
+@import "themes/css/apple.css";
+		</style>
+		<style type="text/css" media="screen">
+@import "css/gameboard.css";
+		</style>
+		<style type="text/css" media="screen">
+@import "css/style.css";>
+		</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
 	</head>
-
 	<body>
 		<div id="jqt">
 			<div id="home selected" class="edgetoedge">
 				<div class="toolbar">
 					<h1>OmegaPet</h1>
 				</div>
-					<div id="menu1">
-						<a id="newGame" href="#new" class="grayButton">New game</a>
-						<br />
-						<a id="resume" href="#play" class="whiteButton">Continue</a>
-					</div>
+				<div id="menu1">
+					<a id="newGame" href="#new" class="grayButton">New game</a>
+					<br />
+					<a id="resume" href="#play" class="whiteButton">Continue</a>
+				</div>
 			</div>
 			<div id="new">
 				<div class="toolbar">
@@ -54,10 +57,14 @@
 				</div>
 				<form class="scroll">
 					<ul class="edit rounded">
-						<li><input type="text" id="playerOneName" name="playerOneName" placeholder="Player one name"></li>
+						<li>
+							<input type="text" id="playerOneName" name="playerOneName" placeholder="Player one name">
+						</li>
 					</ul>
 					<ul class="rounded">
-						<li><input type="text" id="playerTwoName" Name="playerTwoName" placeholder="Player two name"></li>
+						<li>
+							<input type="text" id="playerTwoName" Name="playerTwoName" placeholder="Player two name">
+						</li>
 					</ul>
 					<a id="namesContinue" href="#settings" class="grayButton">Continue</a>
 				</form>
@@ -70,16 +77,57 @@
 				<div>
 					<form>
 						<ul class="rounded">
-							<li>Non-usable tiles<span class="toggle"><input id="nonuse" type="checkbox"/></span></li>
+							<li>
+								Non-usable tiles<span class="toggle">
+									<input id="nonuse" type="checkbox"/>
+								</span>
+							</li>
 						</ul>
 						<h2>Special bricks</h2>
 						<ul class="rounded">
-							<li>Angle-word tiles<span class="toggle"><input id="angletile" type="checkbox" /></span></li>
-							<li>Stop tile<span class="toggle"><input id="stoptile" type="checkbox" /></span></li>
+							<li>
+								Angle-word tiles<span class="toggle">
+									<input id="angletile" type="checkbox" />
+								</span>
+							</li>
+							<li>
+								Stop tile<span class="toggle">
+									<input id="stoptile" type="checkbox" />
+								</span>
+							</li>
 						</ul>
-						<a id="startButton" href="#settings" class="grayButton">Start Game</a>
+						<a id="startButton" href="#play" class="grayButton">Start Game</a>
 					</form>
-
+				</div>
+				</div>
+				<div id="play">
+					<div class="toolbar">
+						<a href="#settings" class="back">Back</a>
+						<div id="players">
+							<div id="playerOne"></div>
+							<div id="playerOneScore"></div>
+							<div id="playerTwo"></div>
+							<div id="playerTwoScore"></div>
+						</div>
+					</div>
+				
+				<div id="playfield"></div>
+				<div id="deck"></div>
+				<div id="playfieldMenu">
+				<ul>
+					<li>
+						<a href="#" class="play grayButton ">Play</a>
+					</li>
+					<li>
+						<a href="#" class="paus grayButton ">Paus</a>
+					</li>
+					<li>
+						<a href="#" class="shuffle grayButton ">Shuffle</a>
+					</li>
+					<li>
+						<a href="#" class="menu grayButton ">Menu</a>
+					</li>
+				</ul>
 				</div>
 			</div>
 		</div>
