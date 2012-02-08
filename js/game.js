@@ -6,7 +6,6 @@ $(document).ready(function() {
 
 	var jQT = $.jQTouch( {});
 
-
 	var game = {
 		gamestatus : 0,
 		tilesLeft : {
@@ -62,7 +61,7 @@ $(document).ready(function() {
 		return grid;
 	}
 	//Game
-	console.log(game.gamestatus);
+	// console.log(game.gamestatus);
 
 	$('#newGame').click(function() {
 		game.init();
@@ -109,7 +108,7 @@ $(document).ready(function() {
 		$('#playerOneScore').html(player1.score);
 		$('#playerTwoScore').html(player2.score);
 		
-		var tmpsize = screen.width;
+		var tmpsize = 300;
 		var size = tmpsize/rows;
 		console.log(size);
 		$('#playfield').html(grid);

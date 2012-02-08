@@ -1,19 +1,75 @@
 $(function(){
 
 	init();
-	var tile = new Object;
-	tile.x = 0;
-	tile.y = 0;
-	tile.drag = $('.dragme').draggable({ stop: 
-		function(event, ui) {
-			var Stoppos = $(this).position();
-			$(this).x = Stoppos.left;
-			console.log("Left: "+Stoppos.left+" Top: "+Stoppos.top);
+	var topint = "";
 
-		}
+	for ( var i=0; i<4; i++ ) {
+		$('<div>' + i + '</div>').data("onTile", "").attr( 'id', 'dragTile'+i ).appendTo( '#dragdiv' ).draggable( {
+			containment: '#startdiv',
+			stack: '#dragdiv div',
+			cursor: 'move',
+			revert: true
+		} ).addClass("dragTile tileSize").click(function() {
+			console.log("ID: "+$(this).attr("id")+" Top: "+$(this).position().top+" Left: "+$(this).position().left+" Parent: "+$(this).parent().attr("id"));
+		});
+	}
+
+	for ( var i=0; i<32; i++ ) {
+		$('<div>' + i + '</div>').data( 'number', i ).attr('id', 'dropTile'+i).appendTo( '#dropdiv' ).droppable( {
+			accept: ".dragTile",
+			drop: handleTileDrop,
+			hoverClass: 'hovered'
+		} ).addClass("dropArea tileSize").click(function() {
+			console.log("ID: "+$(this).attr("id")+" Top: "+$(this).position().top+" Left: "+$(this).position().left+" Parent: "+$(this).parent().attr("id"));
+		});;
+	}
+
+
+	$(".dragTile").mouseover(function () {
+		// console.log($(this).position().top+" : "+$(this).position().left);
+	 });
+
+
+	$(".dragTile").mousedown(function() {
+		$(this).draggable('option', 'revert', true);
+		$("#"+$(this).data('onTile')).droppable('enable');
+		$(this).data('originalParent', $(this).parent());
 	});
 
-	tile.cursorPos = $( ".dragme" ).draggable( "option", "cursorAt" );
+	function acceptMethod(d) {
+		if(d.hasClass("dragTile")) { 
+            return true;
+        }
+	}
+
+	$('#reset').click(resetRevert);
+
+	function resetRevert() {
+
+		$(".dragged").each(function() {
+			// console.log("setting orig parent to: "+$(this).data('originalParent'));
+			// console.log("moving to top: "+$(this).data('position').origtop+" left: "+$(this).data('position').origleft );
+			// $(this).appendTo($(this).data('originalParent'));
+			$(this).animate({ 
+					top: 0, left: 0 
+				},{
+					complete: function() { 
+						$(this).removeClass("dragged");
+					} 
+				}
+			);
+			$(".recentlyDropped").droppable("enable").removeClass("recentlyDropped");
+		});
+	}
+
+	function handleTileDrop(event, ui) {
+		// console.log(ui.draggable.data('position'));
+		ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+		ui.draggable.draggable( 'option', 'revert', false );
+		ui.draggable.addClass('dragged');
+		$(this).droppable( 'disable' ).addClass('recentlyDropped');
+		ui.draggable.data('onTile', $(this).attr('id'));
+	}
 
 
 	function touchHandler(event) {
@@ -48,6 +104,4 @@ $(function(){
    		document.addEventListener("touchend", touchHandler, true);
    		document.addEventListener("touchcancel", touchHandler, true);    
 	}
-
-	$("#startdiv").tile.drag;
 });
