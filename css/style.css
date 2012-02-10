@@ -6,13 +6,18 @@
 	border: 1px solid black;
 	background-color: green;
 	display: inline;
+	position: absolute;
 }
 
 .tileSize {
-	width: 50px;
-	height: 50px;
-	padding: 5px;
+	width: 15px;
+	height: 15px;
+	padding: 1px;
 	float: left;
+}
+
+#sorter {
+	position: inherit;
 }
 
 .dragme p {
@@ -29,7 +34,7 @@
 }
 
 #dropdiv {
-	width: 500px;
+	width: 170px;
 }
 
 #dragdiv {
@@ -38,6 +43,7 @@
 
 #buttondiv {
 	margin-top: 50px;
+	width: 180px;
 }
 
 .dragged {

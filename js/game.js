@@ -61,7 +61,7 @@ $(document).ready(function() {
 		return grid;
 	}
 	//Game
-	// console.log(game.gamestatus);
+	// tconsole.log(game.gamestatus);
 
 	$('#newGame').click(function() {
 		game.init();
